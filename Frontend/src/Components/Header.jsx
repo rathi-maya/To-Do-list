@@ -1,10 +1,23 @@
+import { useState } from "react"
+import InputBox from "./InputBox"
+
 function Header() {
-  return (
+  const [todos, setTodos] = useState([])
+  return (  
     <div className="min-h-screen flex justify-center items-center bg-[#1d2a63]">
-    <div className="bg-[#1f2f6f]  h-100 w-100  shadow-2xl rounded-2xl">
+    <div className="bg-[#1f2f6f]  h-auto w-100  shadow-2xl rounded-2xl">
         <h1 className="m-5 text-xl text-white">To-Do List</h1>
-        <input type="text" className="font-semibold text-sm text-gray-200 p-1 border border-gray-600 w-70 ml-5 mr-5 rounded-sm" placeholder="Please Enter a New Task" />
-        <button className=" text-sm text-white font-medium bg-amber-300 pl-3 pr-3 border p-1 border-amber-300 rounded-sm cursor-pointer">ADD</button>
+        <InputBox/>
+        {
+          (todos.length === 0)?<div>
+              <h2 className="text-2xl flex justify-center mt-5 mb-5 text-white">No Record</h2>
+          </div>:
+          todos.map(todo =>{
+           <div>
+                {todo}
+           </div>
+          })
+        }
     </div>
     </div>
   )
