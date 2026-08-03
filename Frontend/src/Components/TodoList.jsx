@@ -7,7 +7,7 @@ function TodoList() {
      { id: 3, title: "CSS" , status: "Not completed"}
   ];
 
-   const item = todo.map((todo)=>
+   todo.map((todo)=>
   <TodoItem key={todo.id} title={todo.title} status={todo.status}/>)
 
   return (
