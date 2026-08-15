@@ -1,0 +1,21 @@
+.todo-input{
+   margin-top: 10px;
+}
+
+.todo-input input{
+   padding: 7px;
+   border-radius: 8px;
+   width: 425px ;
+   background-color: transparent;
+   color: #C8C8C1;
+   font-size: medium;
+   
+}
+
+.AddBtn{
+    background-color: #F2B20A;
+    padding: 8px;
+    margin-left: 8px;
+    border-radius: 8px;
+    font-weight: bolder;
+}

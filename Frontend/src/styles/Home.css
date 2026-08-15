@@ -1,0 +1,7 @@
+.todo-container{
+    width: 550px;
+    background: #002A40;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow:0px 10px 25px rgba(0,0,0,.3);
+}
