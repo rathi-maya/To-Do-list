@@ -1,8 +1,8 @@
 import { useState } from "react";
 import "../styles/Home.css"
-import Header from "../components/Header.jsx";
+import Header from "../Components/Header.jsx";
 import TodoList from "../Components/TodoList.jsx";
-import TodoInput from "../components/TodoInput.jsx";
+import TodoInput from "../Components/TodoInput.jsx";
 
 function Home() {
 
