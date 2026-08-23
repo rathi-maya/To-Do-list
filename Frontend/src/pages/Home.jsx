@@ -7,13 +7,14 @@ import TodoInput from "../Components/TodoInput.jsx";
 function Home() {
 
     const [todos, setTodos] = useState([]);
+    const [editTodo, setEditTodo] = useState(null);
 
   return (
     <>
       <div className="todo-container">
     <Header/>
-     <TodoInput setTodos={setTodos} />
-     <TodoList todos={todos} setTodos={setTodos} />
+     <TodoInput setTodos={setTodos} editTodo ={editTodo} setEditTodo={setEditTodo} />
+     <TodoList todos={todos} setTodos={setTodos} setEditTodo={setEditTodo}/>
      </div>
     </>
   )

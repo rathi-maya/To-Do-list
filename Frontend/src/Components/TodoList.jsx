@@ -1,7 +1,7 @@
 import TodoItem from "./TodoItem";
 import {useEffect} from "react";
 
-function TodoList({todos, setTodos}) {
+function TodoList({todos, setTodos, setEditTodo}) {
   useEffect(() => {
           const fetchTodos = async () => {
       try {
@@ -27,6 +27,7 @@ function TodoList({todos, setTodos}) {
         title={todo.title}
         status={todo.status}
          setTodos={setTodos}
+         setEditTodo={setEditTodo}
       />
     ))}
   </ul>

@@ -1,11 +1,43 @@
 import "../styles/TodoInput.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-function TodoInput({setTodos}) {
+function TodoInput({setTodos, editTodo, setEditTodo}) {
 
   const[title, setTitle] = useState("");
 
+  useEffect(() => {
+  if (editTodo) {
+    setTitle(editTodo.title);
+  }
+}, [editTodo]);
+
   const handleAdd = async() =>{
+    if(!title.trim()) return;
+    if(editTodo){
+        const response = await fetch(
+      `http://localhost:5000/todos/${editTodo._id}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          title: title,
+          status: editTodo.status
+        })
+      }
+    );
+    const updatedTodo = await response.json()
+
+     setTodos((prevTodos) =>
+      prevTodos.map((todo) =>
+        todo._id === updatedTodo._id ? updatedTodo : todo
+      )
+    );
+     setEditTodo(null);
+    setTitle("");
+    }
+    else{
     const response = await fetch("http://localhost:5000/todos",{
       method: "POST",
       headers:{
@@ -17,12 +49,16 @@ function TodoInput({setTodos}) {
     })
     const data = await response.json();
     setTodos((prevTodos) => [...prevTodos, data]);
+    setTitle("")
   }
+}
 
   return (
     <div className="todo-input">
       <input type="text" value={title} onChange={((e)=> setTitle(e.target.value))} placeholder="Enter the task" />
-      <button onClick={()=>handleAdd()} className="AddBtn">ADD</button>
+     <button className="AddBtn" onClick={handleAdd}>
+  {editTodo ? "UPDATE" : "ADD"}
+</button>
     </div>
   );
 }

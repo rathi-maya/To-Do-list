@@ -11,6 +11,8 @@ function TodoItem(props) {
           prevTodos.filter((item)=>item._id !== props.id))
         }
   }
+
+
   return (
     <div className="todo-item">
         <div className="task">
@@ -22,7 +24,11 @@ function TodoItem(props) {
         <span className={props.status === "Completed" ? "Completed" : "notCompleted"}>{props.title}</span>
       </div>
        <div>
-       <button className="EditBtn" >Edit</button>
+       <button onClick={()=>props.setEditTodo({
+        _id: props.id,
+        title: props.title,
+        status: props.status
+       })} className="EditBtn" >Edit</button>
        <button onClick={()=>handleDelete()} className="DeleteBtn">Delete</button>
        </div>
     </div>
