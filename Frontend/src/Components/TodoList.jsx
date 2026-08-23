@@ -1,20 +1,29 @@
 import TodoItem from "./TodoItem";
+import {useEffect} from "react";
 
-function TodoList() {
-  const todo = [
-    { id: 1, title: "React js", status: "Completed" },
-    { id: 2, title: "CSS" , status: "Not completed"},
-     { id: 3, title: "CSS" , status: "Not completed"}
-  ];
+function TodoList({todos, setTodos}) {
+  useEffect(() => {
+          const fetchTodos = async () => {
+      try {
+        const response = await fetch("http://localhost:5000/todos");
 
-   todo.map((todo)=>
-  <TodoItem key={todo.id} title={todo.title} status={todo.status}/>)
+        const data = await response.json();
+
+        setTodos(data);
+      } catch (error) {
+        console.log("Error fetching todos:", error);
+      }
+    };
+
+    fetchTodos();
+}, [setTodos]);
 
   return (
   <ul>
-    {todo.map((todo) => (
+    {todos.map((todo) => (
       <TodoItem
-        key={todo.id}
+        key={todo._id}
+        id={todo._id}
         title={todo.title}
         status={todo.status}
       />
