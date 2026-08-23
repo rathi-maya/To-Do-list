@@ -15,7 +15,7 @@ function TodoInput({setTodos, editTodo, setEditTodo}) {
     if(!title.trim()) return;
     if(editTodo){
         const response = await fetch(
-      `http://localhost:5000/todos/${editTodo._id}`,
+      `https://to-do-list-irb2.onrender.com/todos/${editTodo._id}`,
       {
         method: "PUT",
         headers: {
@@ -38,7 +38,7 @@ function TodoInput({setTodos, editTodo, setEditTodo}) {
     setTitle("");
     }
     else{
-    const response = await fetch("http://localhost:5000/todos",{
+    const response = await fetch("https://to-do-list-irb2.onrender.com/todos",{
       method: "POST",
       headers:{
         "Content-Type": "application/json"

@@ -5,7 +5,7 @@ function TodoList({todos, setTodos, setEditTodo}) {
   useEffect(() => {
           const fetchTodos = async () => {
       try {
-        const response = await fetch("http://localhost:5000/todos");
+        const response = await fetch("https://to-do-list-irb2.onrender.com/todos");
 
         const data = await response.json();
 

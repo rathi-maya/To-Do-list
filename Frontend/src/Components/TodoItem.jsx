@@ -3,7 +3,7 @@ import "../styles/TodoItem.css"
 function TodoItem(props) {
 
   const handleDelete = async ()=>{
-        const response = await fetch(`http://localhost:5000/todos/${props.id}`,{
+        const response = await fetch(`https://to-do-list-irb2.onrender.com/todos/${props.id}`,{
           method: "DELETE"
         })
         if(response .ok){
@@ -19,7 +19,7 @@ function TodoItem(props) {
       : "Completed";
 
   const response = await fetch(
-    `http://localhost:5000/todos/${props.id}`,
+    `https://to-do-list-irb2.onrender.com/todos/${props.id}`,
     {
       method: "PUT",
       headers: {
