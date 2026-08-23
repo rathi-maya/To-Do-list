@@ -12,6 +12,35 @@ function TodoItem(props) {
         }
   }
 
+  const handleStatusChange = async () => {
+  const newStatus =
+    props.status === "Completed"
+      ? "Not completed"
+      : "Completed";
+
+  const response = await fetch(
+    `http://localhost:5000/todos/${props.id}`,
+    {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        title: props.title,
+        status: newStatus
+      })
+    }
+  );
+
+  const updatedTodo = await response.json();
+
+  props.setTodos((prevTodos) =>
+    prevTodos.map((todo) =>
+      todo._id === updatedTodo._id ? updatedTodo : todo
+    )
+  );
+};
+
 
   return (
     <div className="todo-item">
@@ -19,7 +48,7 @@ function TodoItem(props) {
         <input
           type="checkbox"
           checked={props.status === "Completed"}
-          onChange={() => console.log("clicked")}
+          onChange={() => handleStatusChange()}
         />
         <span className={props.status === "Completed" ? "Completed" : "notCompleted"}>{props.title}</span>
       </div>
