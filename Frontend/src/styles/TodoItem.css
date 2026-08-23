@@ -1,20 +1,21 @@
 .todo-item{
-  margin-top: 10px;
+  margin-top: 8px;
   display: flex;
   justify-content: space-between;
-}
-
-.task{
-    display: inline-block;
-    margin-top: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid #36505d;
 
 }
-span{
-    text-decoration: underline;
+
+ .task {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-.line{
-    text-decoration: underline;
+.Completed {
+  text-decoration: line-through;
+  color: #36505d;
 }
 
 button{
