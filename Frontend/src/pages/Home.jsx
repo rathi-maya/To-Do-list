@@ -1,14 +1,20 @@
+import { useState } from "react";
+import "../styles/Home.css"
 import Header from "../components/Header.jsx";
-import TodoInput from "../components/TodoInput.jsx";
 import TodoList from "../components/TodoList.jsx";
+import TodoInput from "../components/TodoInput.jsx";
 
 function Home() {
-  console.log("hoem")
+
+    const [todos, setTodos] = useState([]);
+
   return (
     <>
+      <div className="todo-container">
     <Header/>
-     <TodoInput/>
-     <TodoList/>
+     <TodoInput setTodos={setTodos} />
+     <TodoList todos={todos} setTodos={setTodos} />
+     </div>
     </>
   )
 }
