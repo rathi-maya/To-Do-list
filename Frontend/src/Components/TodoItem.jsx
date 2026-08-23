@@ -3,10 +3,13 @@ import "../styles/TodoItem.css"
 function TodoItem(props) {
 
   const handleDelete = async ()=>{
-        await fetch(`http://localhost:500/todos/${props.id}`,{
+        const response = await fetch(`http://localhost:5000/todos/${props.id}`,{
           method: "DELETE"
         })
-        console.log("deleted");
+        if(response .ok){
+          props.setTodos((prevTodos)=>
+          prevTodos.filter((item)=>item._id !== props.id))
+        }
   }
   return (
     <div className="todo-item">

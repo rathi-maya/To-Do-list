@@ -26,6 +26,7 @@ function TodoList({todos, setTodos}) {
         id={todo._id}
         title={todo.title}
         status={todo.status}
+         setTodos={setTodos}
       />
     ))}
   </ul>
