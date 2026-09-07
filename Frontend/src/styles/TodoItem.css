@@ -35,7 +35,6 @@ button{
 
 @media (max-width: 600p){
   .todo-item{
-    align-items: flex-start;
     gap:10px;
   }
   .task{
@@ -48,6 +47,6 @@ button{
 
     .EditBtn,
     .DeleteBtn {
-        padding: 5px;
+          flex-shrink: 0;
     }
 }
