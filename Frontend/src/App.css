@@ -20,7 +20,7 @@ body{
 
 @media (max-width: 600px) {
     .app {
-        align-items: flex-start;
+         align-items: center;
         padding: 20px;
     }
 }
