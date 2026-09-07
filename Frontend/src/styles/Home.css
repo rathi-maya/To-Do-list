@@ -1,5 +1,7 @@
 .todo-container{
     width: 575px;
+    max-width: 100%;
+    box-sizing: border-box;
     background: #002A40;
     padding: 30px;
     border-radius: 10px;

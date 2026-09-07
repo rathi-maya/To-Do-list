@@ -1,11 +1,15 @@
 .todo-input{
    margin-top: 10px;
+   display: flex;
+   gap:15px;
 }
 
 .todo-input input{
    padding: 7px;
    border-radius: 8px;
    width: 425px ;
+    max-width: 100%;
+    box-sizing: border-box;
    background-color: transparent;
    color: #C8C8C1;
    font-size: medium;

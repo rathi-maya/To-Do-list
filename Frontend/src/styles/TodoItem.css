@@ -32,3 +32,22 @@ button{
     margin-left: 7px;
 }
 
+
+@media (max-width: 600p){
+  .todo-item{
+    align-items: flex-start;
+    gap:10px;
+  }
+  .task{
+    min-width: 0;
+    flex:1;
+  }
+    .task span {
+        overflow-wrap: anywhere;
+    }
+
+    .EditBtn,
+    .DeleteBtn {
+        padding: 5px;
+    }
+}
